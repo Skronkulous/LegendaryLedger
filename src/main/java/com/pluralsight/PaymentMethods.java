@@ -20,7 +20,9 @@ public class PaymentMethods {
             System.out.print("Please enter the vendor who is receiving the payment (Ex: Amazon, Walmart, etc.): ");
             String vendor = userInput.nextLine();
             System.out.print("Please enter the cost of the payment (Ex: $12.34): $");
-            double amount = Double.parseDouble(df.format(userInput.nextDouble()));
+            double amount = (Double.parseDouble(df.format(userInput.nextDouble())) * -1);
+            userInput.nextLine();
+            userInput.reset();
             String date = Integer.toString(today.getYear()) + "-" + Integer.toString(today.getMonthValue()) + "-" + Integer.toString(today.getDayOfMonth());
             String time = Integer.toString(today.getHour()) + ":" + Integer.toString(today.getMinute()) + ":" + Integer.toString(today.getSecond());
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
@@ -34,7 +36,27 @@ public class PaymentMethods {
         }
     }
     public static void makeDeposit(){
-
+        try{
+            LocalDateTime today = LocalDateTime.now();
+            System.out.print("Please enter the description of the deposit (service, reason, etc.): ");
+            String description = userInput.nextLine();
+            System.out.print("Please enter the vendor who is depositing (Ex: Amazon, Your name, etc.): ");
+            String vendor = userInput.nextLine();
+            System.out.print("Please enter the deposit amount (Ex: $12.34): $");
+            double amount = Double.parseDouble(df.format(userInput.nextDouble()));
+            userInput.nextLine();
+            userInput.reset();
+            String date = Integer.toString(today.getYear()) + "-" + Integer.toString(today.getMonthValue()) + "-" + Integer.toString(today.getDayOfMonth());
+            String time = Integer.toString(today.getHour()) + ":" + Integer.toString(today.getMinute()) + ":" + Integer.toString(today.getSecond());
+            Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
+            newTransactionMap.put((newTransactionMap.size()),newTransaction);
+            System.out.println("Your deposit has been successfully added! Now returning to the main menu...");
+            mainMenu();
+        }
+        catch(Exception inputError){
+            System.out.println("Please enter a valid cost of payment. Returning to payment screen...");
+            makePayment();
+        }
     }
 
 }

@@ -9,8 +9,8 @@ import java.nio.Buffer;
 import java.util.HashMap;
 
 public class FileManipulation {
+    public static HashMap<Integer, Transaction> transactionMap = new HashMap<Integer, Transaction>();
     public static void csvReader(){
-        HashMap<Integer, Transaction> transactionMap = new HashMap<Integer, Transaction>();
         try{
             FileReader fr = new FileReader("src/main/resources/transactions.csv");
             BufferedReader br = new BufferedReader(fr);
