@@ -1,9 +1,6 @@
 package com.pluralsight;
 
-import jdk.dynalink.NamedOperation;
-
 import java.io.*;
-import java.nio.Buffer;
 import java.util.HashMap;
 
 import static com.pluralsight.PaymentMethods.df;
@@ -11,6 +8,7 @@ import static com.pluralsight.PaymentMethods.newTransactionMap;
 
 public class FileManipulation {
     public static HashMap<Integer, Transaction> transactionMap = new HashMap<Integer, Transaction>();
+    //instantiates the map of transactions for the objects in the csv to be written onto (set public so other classes can access)
     public static void csvReader(){
         try{
             FileReader fr = new FileReader("src/main/resources/transactions.csv");
@@ -36,6 +34,7 @@ public class FileManipulation {
             System.out.println("There seems to be an issue with the current file path. Please update and try again.");
             fileError.printStackTrace();
         }
+        //csvReader method will read the csv file and input it into a Hashmap of transactions (file error exception if pathing is off)
     }
     public static void csvWriter(){
         try{
@@ -53,6 +52,7 @@ public class FileManipulation {
             fileError.printStackTrace();
         }
     }
+    //csvWriter will read the new transaction map and append it to the csv file
 
     public static String getName(){
         try{
@@ -65,4 +65,5 @@ public class FileManipulation {
             return null;
         }
     }
+    //this will grab the name of the User folder on the local machine
 }

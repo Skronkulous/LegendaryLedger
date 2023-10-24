@@ -1,14 +1,10 @@
 package com.pluralsight;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.TreeMap;
-
 import static com.pluralsight.MenuMethods.*;
 import static com.pluralsight.PaymentMethods.df;
 import static com.pluralsight.PaymentMethods.newTransactionMap;
 import static com.pluralsight.FileManipulation.transactionMap;
+//importing the public Hashmaps that are used to store the new and old transaction objects, main menu recursive methods, and decimal formatting for prices
 
 public class DisplayFunctionality {
     public static void showAll(){
@@ -22,6 +18,7 @@ public class DisplayFunctionality {
         System.out.println("\n\nReturning to the main menu...");
         mainMenu();
     }
+    //will run through every single transaction object from the new Hashmap and the old Hashmap (these are in separate maps to append when writing to csv and to show new transactions first)
     public static void showPayments(){
         System.out.print("\nAll payment entries: \ndate | time | description | vendor | amount");
         for(Transaction nt: newTransactionMap.values()){
@@ -37,6 +34,7 @@ public class DisplayFunctionality {
         System.out.println("\n\nReturning to the main menu...");
         mainMenu();
     }
+    //will run through all the 'payment' transactions (shown by negative amount value)
     public static void showDeposits(){
         System.out.print("\nAll deposit entries: \ndate | time | description | vendor | amount");
         for(Transaction nt: newTransactionMap.values()){
@@ -52,4 +50,5 @@ public class DisplayFunctionality {
         System.out.println("\n\nReturning to the main menu...");
         mainMenu();
     }
+    //will run through all the 'deposit' transactions (shown by positive amount value)
 }

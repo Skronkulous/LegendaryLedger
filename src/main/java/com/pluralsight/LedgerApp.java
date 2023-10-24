@@ -9,5 +9,6 @@ public class LedgerApp {
         csvReader();
         System.out.print("Welcome to the Legendary Ledger. Hello " + getName() + ". How can we help you today?");
         mainMenu();
+        //provides introductory message and then calls main menu
     }
 }

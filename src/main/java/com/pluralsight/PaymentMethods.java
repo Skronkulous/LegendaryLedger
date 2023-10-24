@@ -3,7 +3,6 @@ package com.pluralsight;
 import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Scanner;
-import java.time.format.DateTimeFormatter;
 import java.time.*;
 
 import static com.pluralsight.MenuMethods.*;
@@ -35,6 +34,7 @@ public class PaymentMethods {
             makePayment();
         }
     }
+    //based off of given info, adds new (payment) transaction object to new transaction map
     public static void makeDeposit(){
         try{
             LocalDateTime today = LocalDateTime.now();
@@ -58,5 +58,5 @@ public class PaymentMethods {
             makePayment();
         }
     }
-
+    //based off of given info, adds new (deposit) transaction object to new transaction map
 }
