@@ -4,6 +4,7 @@ import java.io.File;
 import java.util.Scanner;
 
 import static com.pluralsight.DisplayFunctionality.*;
+import static com.pluralsight.FileManipulation.csvWriter;
 import static com.pluralsight.PaymentMethods.*;
 import static com.pluralsight.SearchFunctionality.*;
 
@@ -26,6 +27,7 @@ public class MenuMethods {
                 break;
             case("4"):
                 System.out.println("Thank you, & see you again soon!");
+                csvWriter();
                 break;
             default:
                 System.out.println("\nPlease enter a valid option (1, 2, 3, or 4).");

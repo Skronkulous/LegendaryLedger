@@ -2,11 +2,12 @@ package com.pluralsight;
 
 import jdk.dynalink.NamedOperation;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.nio.Buffer;
 import java.util.HashMap;
+
+import static com.pluralsight.PaymentMethods.df;
+import static com.pluralsight.PaymentMethods.newTransactionMap;
 
 public class FileManipulation {
     public static HashMap<Integer, Transaction> transactionMap = new HashMap<Integer, Transaction>();
@@ -37,7 +38,20 @@ public class FileManipulation {
         }
     }
     public static void csvWriter(){
-
+        try{
+            FileWriter fw = new FileWriter("src/main/resources/transactions.csv", true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            for(Transaction t: newTransactionMap.values()){
+                String tempString = (t.getDate().trim() + "|" + t.getTime().trim() + "|" + t.getDescription().trim() + "|" + t.getVendor().trim() + "|" + df.format(t.getAmount()).trim());
+                bw.write(tempString);
+                bw.newLine();
+            }
+            bw.close();
+        }
+        catch(Exception fileError){
+            System.out.println("There seems to have been an issue with the file path. Please update and try again.");
+            fileError.printStackTrace();
+        }
     }
 
     public static String getName(){
