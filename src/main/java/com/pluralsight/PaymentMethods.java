@@ -27,7 +27,7 @@ public class PaymentMethods {
             String time = Integer.toString(today.getHour()) + ":" + Integer.toString(today.getMinute()) + ":" + Integer.toString(today.getSecond());
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
             newTransactionMap.put((newTransactionMap.size()),newTransaction);
-            System.out.println("Your payment has been successfully added! Now returning to the main menu...");
+            System.out.println("\nYour payment has been successfully added! Now returning to the main menu...");
             mainMenu();
         }
         catch(Exception inputError){
@@ -50,7 +50,7 @@ public class PaymentMethods {
             String time = Integer.toString(today.getHour()) + ":" + Integer.toString(today.getMinute()) + ":" + Integer.toString(today.getSecond());
             Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
             newTransactionMap.put((newTransactionMap.size()),newTransaction);
-            System.out.println("Your deposit has been successfully added! Now returning to the main menu...");
+            System.out.println("\nYour deposit has been successfully added! Now returning to the main menu...");
             mainMenu();
         }
         catch(Exception inputError){

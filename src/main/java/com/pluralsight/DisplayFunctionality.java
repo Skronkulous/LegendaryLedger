@@ -12,18 +12,18 @@ import static com.pluralsight.FileManipulation.transactionMap;
 
 public class DisplayFunctionality {
     public static void showAll(){
-        System.out.print("All ledger entries: \ndate | time | description | vendor | amount");
+        System.out.print("\nAll ledger entries: \ndate | time | description | vendor | amount");
         for(Transaction nt: newTransactionMap.values()){
             System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
         }
         for(Transaction t: transactionMap.values()){
             System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
         }
-        System.out.println("\nReturning to the main menu...");
+        System.out.println("\n\nReturning to the main menu...");
         mainMenu();
     }
     public static void showPayments(){
-        System.out.print("All payment entries: \ndate | time | description | vendor | amount");
+        System.out.print("\nAll payment entries: \ndate | time | description | vendor | amount");
         for(Transaction nt: newTransactionMap.values()){
             if(nt.getAmount() < 0){
                 System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
@@ -34,11 +34,11 @@ public class DisplayFunctionality {
                 System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
             }
         }
-        System.out.println("\nReturning to the main menu...");
+        System.out.println("\n\nReturning to the main menu...");
         mainMenu();
     }
     public static void showDeposits(){
-        System.out.print("All deposit entries: \ndate | time | description | vendor | amount");
+        System.out.print("\nAll deposit entries: \ndate | time | description | vendor | amount");
         for(Transaction nt: newTransactionMap.values()){
             if(nt.getAmount() > 0){
                 System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
@@ -49,7 +49,7 @@ public class DisplayFunctionality {
                 System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
             }
         }
-        System.out.println("\nReturning to the main menu...");
+        System.out.println("\n\nReturning to the main menu...");
         mainMenu();
     }
 }
