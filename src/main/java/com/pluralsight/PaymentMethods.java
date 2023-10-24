@@ -9,12 +9,12 @@ import java.time.*;
 import static com.pluralsight.MenuMethods.*;
 
 public class PaymentMethods {
+    public static LocalDateTime today = LocalDateTime.now();
     public static Scanner userInput = new Scanner(System.in);
     public static final DecimalFormat df = new DecimalFormat("#.00");
     public static HashMap<Integer, Transaction> newTransactionMap = new HashMap<Integer, Transaction>();
     public static void makePayment(){
         try{
-            LocalDateTime today = LocalDateTime.now();
             System.out.print("Please enter the description of the payment (item name, service, etc.): ");
             String description = userInput.nextLine();
             System.out.print("Please enter the vendor who is receiving the payment (Ex: Amazon, Walmart, etc.): ");
