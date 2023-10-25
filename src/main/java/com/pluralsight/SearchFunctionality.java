@@ -56,7 +56,7 @@ public class SearchFunctionality {
     }
     //Searches ledger based off of 1st of year to current date
     public static void yearToDateSearch(){
-        System.out.print("\nAll ledger entries from " + "1/1/ " + today.getYear() + " - " + today.getMonthValue() + "/" + today.getDayOfMonth() + "/" + today.getYear() + ": \ndate | time | description | vendor | amount");
+        System.out.print("\nAll ledger entries from " + "1/1/" + today.getYear() + " - " + today.getMonthValue() + "/" + today.getDayOfMonth() + "/" + today.getYear() + ": \ndate | time | description | vendor | amount");
         for(Transaction nt: newTransactionMap.values()) {
             String[] dateSplit = nt.getDate().split("-");
             if(Integer.parseInt(dateSplit[0]) == today.getYear()){
