@@ -91,7 +91,7 @@ ArrayList.
 
 NOTE: This was much much more confusing when I first wrote it until I added the beginning and
 end dates that are initialized at the start.
-********************************
+***********************************
 Additional Notes:
 -All of these methods are completely recursive (unless I missed something), so ignore the little bit
 of bloat at the bottom of the methods, it makes it seem bigger than it really is.
