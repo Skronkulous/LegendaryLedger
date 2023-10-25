@@ -77,8 +77,8 @@ was so I could easily output the newest values first).
 of the payments/deposits depending on which option the user selects. The only
 difference is the sign of the amount it is retrieving (negative or positive).
 
-![addPaymentSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/e78d3640-de50-430d-ae44-a20ffe89ca39)
-![addDepositSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/c088ca30-ecec-4faa-bb40-5b02b3dca367)
+![paymentDisplaySnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/ef03ca43-c7d7-43f5-9952-f8de1d142048)
+![depositDisplaySnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/2243d729-def1-4187-8d83-7e689efe282e)
 
 NOTE: As I was writing this I realized that I could have put them both into the
 same HashMap (new and old) and sorted by date when I was outputting. Also compared
