@@ -11,14 +11,17 @@ Menus:
 methods and error messages will lead to this main menu.
 
 ![mainMenuSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/99ca19db-dfbf-41f5-81ba-f3c291915c0e)
+
 -2) Ledger Menu: This is the first sub-menu and is used to access some
 of the search methods and will lead to the search menu.
 
 ![ledgerMenuSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/6d12fce9-73fc-4cf7-850f-08186df537b9)
+
 -3) Search Menu: This is the menu with the most methods and is the
 sub-sub menu. This will allow the user to do more complicated searches.
 
 ![searchMenuSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/d87236b1-e530-4b38-a8e0-6125e2eee6d2)
+
 *************************************
 File Manipulation:
 -1) CSV Reader: This is the first method that is called in Main
@@ -34,6 +37,7 @@ It basically just pulls the file path from the given CSV file and then
 extrapolates the local machines name of current User by parsing the path.
 
 ![getNameSnip2](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/0df501dc-48ef-4ee0-b0c5-69760c64c882)
+
 ************************************
 Transaction Object:
 -The Transaction object is one of the classes that has its methods called
@@ -50,6 +54,7 @@ will add a new Transaction object to that map based off of the given
 info the user provides.
 
 ![addPaymentSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/e0872cea-f32f-4c3c-b48b-e9825715730a)
+
 -2) Make Deposit: This method is identical to the one above except it returns a 
 positive value while the other returns negative.
 
@@ -67,12 +72,14 @@ Transaction values that are stored in both new HashMap and old HashMap.
 was so I could easily output the newest values first).
 
 ![allDisplaySnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/0f361bed-f146-4443-9139-7b4ed0c3a309)
+
 -2) Show Payments/Show Deposits: These (as the method name implies) show all
 of the payments/deposits depending on which option the user selects. The only
 difference is the sign of the amount it is retrieving (negative or positive).
 
 ![addPaymentSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/e78d3640-de50-430d-ae44-a20ffe89ca39)
 ![addDepositSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/c088ca30-ecec-4faa-bb40-5b02b3dca367)
+
 NOTE: As I was writing this I realized that I could have put them both into the
 same HashMap (new and old) and sorted by date when I was outputting. Also compared
 the HashMap to the current CSV file to see what needs to be appended based off of
@@ -87,6 +94,7 @@ parsing the date retrieved by the HashMaps and will compare the date and day/ ye
 
 ![monthToDaySnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/7ac6cf73-c9a2-4027-83f5-52d87ec06a6b)
 ![yearToDaySnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/83351bcc-8f08-4233-b4e4-5da892862aa0)
+
 -2)Previous Month / Previous Year: These methods will parse the date retrieved by both of
 the HashMaps and compare them to the current date to find the previous month and previous
 year respectively. Previous month/year is defined by current month/year -1, so there is a special
@@ -94,10 +102,12 @@ case at the beginning for January ( 1 - 1 != 12).
 
 ![previousMonthSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/02c49789-d9bc-46aa-825f-a5300ebf2706)
 ![previousYearSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/92fc446a-391d-4bb8-a5b6-e2263c273a36)
+
 -3) Vendor Search: This method will look at all of the HashMaps in order to find the users
 given vendor. It will loop through both and compare the given vendor to the found vendor.
 
 ![vendorSearchSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/7806f1b3-2cda-47b3-aec7-388f0d9d0509)
+
 -4) Custom Search: This is the most complicated, but most proud i am of, piece of code here.
   -It all starts with the 'beginning' and 'end' dates at the top (lines 141 & 142). These
   will be used in the first two questions (asking for start and end date of search). Since the
