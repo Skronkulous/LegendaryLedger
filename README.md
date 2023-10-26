@@ -124,6 +124,7 @@ do not meet the requirements given. It will then print out the final Transaction
 ArrayList.
 
 ![customSearchSnip](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/20afc179-8d6c-4035-b2ac-c80f4c12cf91)
+![customSearchSnip2](https://github.com/Skronkulous/LegendaryLedger/assets/68873730/9fd2bc01-972e-4f2a-aa4d-e69a9978fb0d)
 
 NOTE: This was much much more confusing when I first wrote it until I added the beginning and
 end dates that are initialized at the start.
