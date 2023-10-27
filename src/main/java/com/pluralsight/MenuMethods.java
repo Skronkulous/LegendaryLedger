@@ -55,7 +55,7 @@ public class MenuMethods {
                 mainMenu();
                 break;
             default:
-                System.out.println("\nPlease enter a valid option (1, 2, 3, or 4).");
+                System.out.println("\nPlease enter a valid option (1, 2, 3, 4, or 5).");
                 ledgerMenu();
                 break;
         }
@@ -88,7 +88,7 @@ public class MenuMethods {
                 mainMenu();
                 break;
             default:
-                System.out.println("\nPlease enter a valid option (1, 2, 3, or 4).");
+                System.out.println("\nPlease enter a valid option (1, 2, 3, 4, 5, 6, or 7).");
                 searchMenu();
                 break;
         }
