@@ -1,97 +1,62 @@
 package com.pluralsight;
 
+import java.text.DecimalFormat;
+import java.util.HashMap;
 import java.util.Scanner;
+import java.time.*;
 
-import static com.pluralsight.DisplayFunctionality.*;
-import static com.pluralsight.FileManipulation.csvWriter;
-import static com.pluralsight.PaymentMethods.*;
-import static com.pluralsight.SearchFunctionality.*;
+import static com.pluralsight.MenuMethods.*;
 
-public class MenuMethods {
+public class PaymentMethods {
+    public static LocalDateTime today = LocalDateTime.now();
     public static Scanner userInput = new Scanner(System.in);
-    public static void mainMenu(){
-        System.out.print("\nMain Menu:\nPlease choose an option (1, 2, 3, or 4): \n\t1) Add Deposit\n\t2) Make Payment (Debit)\n\t3) Ledger\n\t4) Exit\nUser Input: ");
-        String input = userInput.nextLine();
-        userInput.reset();
-        switch(input){
-            case ("1"):
-                makeDeposit();
-                break;
-            case("2"):
-                makePayment();
-                break;
-            case("3"):
-                ledgerMenu();
-                break;
-            case("4"):
-                System.out.println("Thank you, & see you again soon!");
-                csvWriter();
-                break;
-            default:
-                System.out.println("\nPlease enter a valid option (1, 2, 3, or 4).");
-                mainMenu();
-                break;
+    public static final DecimalFormat df = new DecimalFormat("#.00");
+    public static HashMap<Integer, Transaction> newTransactionMap = new HashMap<Integer, Transaction>();
+    public static void makePayment(){
+        try{
+            System.out.print("Please enter the description of the payment (item name, service, etc.): ");
+            String description = userInput.nextLine();
+            System.out.print("Please enter the vendor who is receiving the payment (Ex: Amazon, Walmart, etc.): ");
+            String vendor = userInput.nextLine();
+            System.out.print("Please enter the cost of the payment (Ex: $12.34): $");
+            double amount = (Double.parseDouble(df.format(userInput.nextDouble())) * -1);
+            userInput.nextLine();
+            userInput.reset();
+            String date = Integer.toString(today.getYear()) + "-" + Integer.toString(today.getMonthValue()) + "-" + Integer.toString(today.getDayOfMonth());
+            String time = Integer.toString(today.getHour()) + ":" + Integer.toString(today.getMinute()) + ":" + Integer.toString(today.getSecond());
+            Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
+            newTransactionMap.put((newTransactionMap.size()),newTransaction);
+            System.out.println("\nYour payment has been successfully added! Now returning to the main menu...");
+            mainMenu();
+        }
+        catch(Exception inputError){
+            System.out.println("Please enter a valid cost of payment. Returning to payment screen...");
+            makePayment();
         }
     }
-    //Main menu to navigate through entire program
-    public static void ledgerMenu(){
-        System.out.print("\nLedger Menu:\nPlease choose an option (1, 2, 3, 4, or 5):\n\t1) Display all entries\n\t2) Display Deposits\n\t3) Display Payments\n\t4) Run report search\n\t5) Return to main menu\nUser Input: ");
-        String input = userInput.nextLine();
-        switch(input){
-            case ("1"):
-                showAll();
-                break;
-            case("2"):
-                showDeposits();
-                break;
-            case("3"):
-                showPayments();
-                break;
-            case("4"):
-                searchMenu();
-                break;
-            case("5"):
-                System.out.println("Returning to main menu...");
-                mainMenu();
-                break;
-            default:
-                System.out.println("\nPlease enter a valid option (1, 2, 3, 4, or 5).");
-                ledgerMenu();
-                break;
+    //based off of given info, adds new (payment) transaction object to new transaction map
+    public static void makeDeposit(){
+        try{
+            LocalDateTime today = LocalDateTime.now();
+            System.out.print("Please enter the description of the deposit (service, reason, etc.): ");
+            String description = userInput.nextLine();
+            System.out.print("Please enter the vendor who is depositing (Ex: Amazon, Your name, etc.): ");
+            String vendor = userInput.nextLine();
+            System.out.print("Please enter the deposit amount (Ex: $12.34): $");
+            double amount = Double.parseDouble(df.format(userInput.nextDouble()));
+            userInput.nextLine();
+            userInput.reset();
+            String date = Integer.toString(today.getYear()) + "-" + Integer.toString(today.getMonthValue()) + "-" + Integer.toString(today.getDayOfMonth());
+            String time = Integer.toString(today.getHour()) + ":" + Integer.toString(today.getMinute()) + ":" + Integer.toString(today.getSecond());
+            Transaction newTransaction = new Transaction(date, time, description, vendor, amount);
+            newTransactionMap.put((newTransactionMap.size()),newTransaction);
+            System.out.println("\nYour deposit has been successfully added! Now returning to the main menu...");
+            mainMenu();
+        }
+        catch(Exception inputError){
+            System.out.println("Please enter a valid cost of deposit. Returning to payment screen...");
+            makePayment();
         }
     }
-    //Ledger menu for user to choose how to manipulate the ledger list
-    public static void searchMenu(){
-        System.out.print("\nSearch Menu:\nPlease choose an option (1 - 7):\n\t1) Month to date\n\t2) Previous month\n\t3) Year to date\n\t4) Previous year\n\t5) Vendor search\n\t6) Custom search\n\t7)Return to ledger menu\nUser Input: ");
-        String input = userInput.nextLine();
-        switch(input){
-            case ("1"):
-                monthToDateSearch();
-                break;
-            case("2"):
-                previousMonthSearch();
-                break;
-            case("3"):
-                yearToDateSearch();
-                break;
-            case("4"):
-                previousYearSearch();
-                break;
-            case("5"):
-                vendorSearch();
-                break;
-            case("6"):
-                customSearch();
-                break;
-            case("7"):
-                System.out.println("Returning to main menu...");
-                mainMenu();
-                break;
-            default:
-                System.out.println("\nPlease enter a valid option (1, 2, 3, 4, 5, 6, or 7).");
-                searchMenu();
-                break;
-        }
-    }
-    //Search menu for user to narrow down the list of transactions
+    //based off of given info, adds new (deposit) transaction object to new transaction map
 }
