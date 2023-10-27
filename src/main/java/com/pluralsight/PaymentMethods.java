@@ -54,7 +54,7 @@ public class PaymentMethods {
             mainMenu();
         }
         catch(Exception inputError){
-            System.out.println("Please enter a valid cost of payment. Returning to payment screen...");
+            System.out.println("Please enter a valid cost of deposit. Returning to payment screen...");
             makePayment();
         }
     }

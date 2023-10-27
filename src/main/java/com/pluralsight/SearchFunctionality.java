@@ -14,16 +14,16 @@ public class SearchFunctionality {
     //Searches ledgers from the 1st of the month to current date
     public static void monthToDateSearch(){
         System.out.print("\nAll ledger entries from " + today.getMonthValue() + "/1 - " + today.getMonthValue() + "/" + today.getDayOfMonth() + ": \ndate | time | description | vendor | amount");
-        for(Transaction nt: newTransactionMap.values()) {
-            String[] dateSplit = nt.getDate().split("-");
-            if((Integer.parseInt(dateSplit[1]) == today.getMonthValue()) && (Integer.parseInt(dateSplit[2]) <= today.getDayOfMonth())){
-                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
-            }
-        }
         for(Transaction t: transactionMap.values()){
             String[] dateSplit = t.getDate().split("-");
             if((Integer.parseInt(dateSplit[1]) == today.getMonthValue()) && (Integer.parseInt(dateSplit[2]) <= today.getDayOfMonth())){
                 System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
+            }
+        }
+        for(Transaction nt: newTransactionMap.values()) {
+            String[] dateSplit = nt.getDate().split("-");
+            if((Integer.parseInt(dateSplit[1]) == today.getMonthValue()) && (Integer.parseInt(dateSplit[2]) <= today.getDayOfMonth())){
+                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
             }
         }
         System.out.println("\nReturning to main menu...");
@@ -39,16 +39,16 @@ public class SearchFunctionality {
             prevMonth = today.getMonthValue()-1;
         }
         System.out.print("\nAll ledger entries from " + Month.of(prevMonth).name().toLowerCase() + ": \ndate | time | description | vendor | amount");
-        for(Transaction nt: newTransactionMap.values()) {
-            String[] dateSplit = nt.getDate().split("-");
-            if(Integer.parseInt(dateSplit[1]) == prevMonth){
-                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
-            }
-        }
         for(Transaction t: transactionMap.values()){
             String[] dateSplit = t.getDate().split("-");
             if(Integer.parseInt(dateSplit[1]) == prevMonth){
                 System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
+            }
+        }
+        for(Transaction nt: newTransactionMap.values()) {
+            String[] dateSplit = nt.getDate().split("-");
+            if(Integer.parseInt(dateSplit[1]) == prevMonth){
+                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
             }
         }
         System.out.println("\n\nReturning to main menu...");
@@ -57,16 +57,16 @@ public class SearchFunctionality {
     //Searches ledger based off of 1st of year to current date
     public static void yearToDateSearch(){
         System.out.print("\nAll ledger entries from " + "1/1/" + today.getYear() + " - " + today.getMonthValue() + "/" + today.getDayOfMonth() + "/" + today.getYear() + ": \ndate | time | description | vendor | amount");
-        for(Transaction nt: newTransactionMap.values()) {
-            String[] dateSplit = nt.getDate().split("-");
-            if(Integer.parseInt(dateSplit[0]) == today.getYear()){
-                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
-            }
-        }
         for(Transaction t: transactionMap.values()){
             String[] dateSplit = t.getDate().split("-");
             if(Integer.parseInt(dateSplit[0]) == today.getYear()){
                 System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
+            }
+        }
+        for(Transaction nt: newTransactionMap.values()) {
+            String[] dateSplit = nt.getDate().split("-");
+            if(Integer.parseInt(dateSplit[0]) == today.getYear()){
+                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
             }
         }
         System.out.println("\n\nReturning to main menu...");
@@ -76,16 +76,16 @@ public class SearchFunctionality {
     public static void previousYearSearch(){
         int prevYear = today.getYear()-1;
         System.out.print("\nAll ledger entries from " + prevYear + ": \ndate | time | description | vendor | amount");
-        for(Transaction nt: newTransactionMap.values()) {
-            String[] dateSplit = nt.getDate().split("-");
-            if(Integer.parseInt(dateSplit[0]) == prevYear){
-                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
-            }
-        }
         for(Transaction t: transactionMap.values()){
             String[] dateSplit = t.getDate().split("-");
             if(Integer.parseInt(dateSplit[0]) == prevYear){
                 System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
+            }
+        }
+        for(Transaction nt: newTransactionMap.values()) {
+            String[] dateSplit = nt.getDate().split("-");
+            if(Integer.parseInt(dateSplit[0]) == prevYear){
+                System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
             }
         }
         System.out.println("\n\nReturning to main menu...");
@@ -103,17 +103,17 @@ public class SearchFunctionality {
             }
             else{
                 int temp = 0;
-                for(Transaction nt: newTransactionMap.values()){
-                    if(vendorChoice.equalsIgnoreCase(nt.getVendor())){
-                        System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
+                for(Transaction t: transactionMap.values()){
+                    if(vendorChoice.equalsIgnoreCase(t.getVendor())){
+                        System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
                     }
                     else{
                         temp++;
                     }
                 }
-                for(Transaction t: transactionMap.values()){
-                    if(vendorChoice.equalsIgnoreCase(t.getVendor())){
-                        System.out.print("\n" + t.getDate() + " | " + t.getTime() + " | " + t.getDescription() + " | " + t.getVendor() + " | $" + df.format(t.getAmount()));
+                for(Transaction nt: newTransactionMap.values()){
+                    if(vendorChoice.equalsIgnoreCase(nt.getVendor())){
+                        System.out.print("\n" + nt.getDate() + " | " + nt.getTime() + " | " + nt.getDescription() + " | " + nt.getVendor() + " | $" + df.format(nt.getAmount()));
                     }
                     else{
                         temp++;
@@ -157,16 +157,16 @@ public class SearchFunctionality {
             if (!endDate.isEmpty()){
                 end = sdf.parse(endDate);
             }
-            for(Transaction nt: newTransactionMap.values()){
-                Date tempDate = sdf2.parse(nt.getDate());
-                if((tempDate.before(end) || tempDate.equals(end)) && (tempDate.after(beginning) || tempDate.equals(beginning))){
-                    searchList.add(nt);
-                }
-            }
             for(Transaction t: transactionMap.values()){
                 Date tempDate = sdf2.parse(t.getDate());
                 if((tempDate.before(end) || tempDate.equals(end)) && (tempDate.after(beginning) || tempDate.equals(beginning))){
                     searchList.add(t);
+                }
+            }
+            for(Transaction nt: newTransactionMap.values()){
+                Date tempDate = sdf2.parse(nt.getDate());
+                if((tempDate.before(end) || tempDate.equals(end)) && (tempDate.after(beginning) || tempDate.equals(beginning))){
+                    searchList.add(nt);
                 }
             }
             System.out.print("\nPlease enter the description of your chosen item(s) (Ex: invoice, receipts, etc.): ");
